@@ -1,2 +1,33 @@
-// Use this file to set SASS variables for @edx/paragon
-// See _variables.scss in https://github.com/openedx/paragon/blob/master/scss/core/ for reference
+// KKUx Brand — Paragon SCSS variable overrides
+// These override Paragon defaults at compile time (webpack build).
+// Must be imported BEFORE @edx/paragon in MFE index.scss.
+// Reference: node_modules/@openedx/paragon/scss/core/_variables.scss
+
+// ---- Color system ----
+$brand:   #00392B;
+$primary: #00392B;
+$dark:    #001710;
+$success: #178253;
+
+// ---- Typography ----
+$font-family-sans-serif: 'IBM Plex Sans Arabic', 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+// ---- Brand CSS custom properties (for runtime styling where SCSS vars can't reach) ----
+:root {
+  --color-primary:   #00392B;
+  --color-secondary: #50946B;
+  --color-white:     #ffffff;
+  --color-dark:      #001710;
+
+  --color-primary-100: #E0EDE7;
+  --color-primary-200: #B0CFBE;
+  --color-primary-300: #80B295;
+  --color-primary-400: #50946B;
+  --color-primary-500: #00392B;
+  --color-primary-600: #002E22;
+  --color-primary-700: #002319;
+  --color-primary-800: #001710;
+  --color-primary-900: #000C07;
+
+  --font-family-base: 'IBM Plex Sans Arabic', 'IBM Plex Sans', sans-serif;
+}

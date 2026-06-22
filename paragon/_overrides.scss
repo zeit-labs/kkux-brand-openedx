@@ -1,41 +1,30 @@
-// KKUx Brand — Paragon CSS Custom Properties
-// Must override --pgn-* variables that Paragon components actually use.
-// Loaded via webpack alias: @openedx/brand-openedx → ../kkux-brand-openedx
+// KKUx Brand — Post-Paragon CSS overrides
+// This file is imported AFTER @edx/paragon in MFE index.scss.
+// Use it for component-level overrides that SCSS variables can't handle.
+// Reference: https://github.com/openedx/brand-openedx
 
-html:root {
-  // ---- Brand (replaces default #9D0054 purple) ----
-  --pgn-color-brand-base:   #00392B !important;
-  --pgn-color-brand-100:    #E0EDE7 !important;
-  --pgn-color-brand-200:    #B0CFBE !important;
-  --pgn-color-brand-300:    #80B295 !important;
-  --pgn-color-brand-400:    #50946B !important;
-  --pgn-color-brand-500:    #00392B !important;
-  --pgn-color-brand-600:    #002E22 !important;
-  --pgn-color-brand-700:    #002319 !important;
-  --pgn-color-brand-800:    #001710 !important;
-  --pgn-color-brand-900:    #000C07 !important;
+html,
+body {
+  * {
+    font-family: var(--font-family-base) !important;
+  }
 
-  // ---- Primary Button ----
-  --pgn-color-primary-base:       #00392B !important;
-  --pgn-color-primary-100:        #E0EDE7 !important;
-  --pgn-color-primary-200:        #B0CFBE !important;
-  --pgn-color-primary-300:        #80B295 !important;
-  --pgn-color-primary-400:        #50946B !important;
-  --pgn-color-primary-500:        #00392B !important;
-  --pgn-color-primary-600:        #002E22 !important;
-  --pgn-color-primary-700:        #002319 !important;
-  --pgn-color-primary-800:        #001710 !important;
-  --pgn-color-primary-900:        #000C07 !important;
+  button,
+  input,
+  select,
+  textarea {
+    font-family: inherit;
+  }
 
-  // ---- Typography ----
-  --pgn-typography-font-family-base:       'IBM Plex Sans Arabic', 'IBM Plex Sans', sans-serif !important;
-  --pgn-typography-font-family-sans-serif: 'IBM Plex Sans Arabic', 'IBM Plex Sans', sans-serif !important;
-
-  // ---- Legacy vars ----
-  --brand:                  #00392B !important;
-  --primary:                #00392B !important;
-  --green:                  #00392B !important;
-  --success:                #00392B !important;
-  --dark:                   #001710 !important;
-  --font-family-sans-serif: 'IBM Plex Sans Arabic', 'IBM Plex Sans', sans-serif !important;
+  .pgn__typography,
+  .pgn__text,
+  .pgn__heading,
+  .pgn__button,
+  .pgn__form-control,
+  .pgn__form-label,
+  .pgn__modal,
+  .pgn__dropdown,
+  .pgn__menu {
+    font-family: inherit;
+  }
 }
