@@ -1,7 +1,11 @@
 // KKUx Brand — Post-Paragon CSS overrides
 // This file is imported AFTER @edx/paragon in MFE index.scss.
 // Use it for component-level overrides that SCSS variables can't handle.
-// Reference: https://github.com/openedx/brand-openedx
+//
+// !important on font-family is necessary because Paragon components
+// declare their own font-family (e.g., .pgn__* classes). Without it
+// Paragon's built-in declarations win. This matches community practice
+// (eduba-brand-openedx, edly-io/brand-openedx, etc.).
 
 html,
 body {
