@@ -1,2 +1,32 @@
-// Use this file to set SASS variables for @edx/paragon
-// See _variables.scss in https://github.com/openedx/paragon/blob/master/scss/core/ for reference
+// KKUx Brand Design Tokens — Paragon SASS Variables
+// Matches kkux-marketing-site design system
+
+// Primary brand colors
+$primary: #1B8354;
+$primary-dark: #074D31;
+$primary-light: #7BC4A0;
+
+// Secondary / accent
+$secondary: #074D31;
+
+// Status colors
+$success: #1B8354;
+$info: #1976D2;
+$warning: #F57C00;
+$danger: #D32F2F;
+
+// Neutrals
+$white: #FFFFFF;
+$gray-100: #F5F5F5;
+$gray-200: #EEEEEE;
+$gray-300: #E0E0E0;
+$gray-400: #BDBDBD;
+$gray-500: #9E9E9E;
+$gray-600: #757575;
+$gray-700: #616161;
+$gray-800: #424242;
+$gray-900: #212121;
+
+// Typography
+$font-family-sans-serif: 'IBM Plex Sans Arabic', 'IBM Plex Sans', sans-serif;
+$font-family-base: $font-family-sans-serif;
