@@ -1,2 +1,16 @@
-// Use this file to define style overrides for @edx/paragon
-// This file is included after all Paragon styles, but should generally avoid using private mixins in Paragon.
+// KKUx Brand — Paragon CSS Custom Properties (runtime theming)
+// Overrides Paragon's :root variables. Must be imported AFTER Paragon.
+
+:root {
+  // ---- Brand ----
+  --brand:                  #1B8354;
+  --primary:                #1B8354;
+  --green:                  #1B8354;
+  --success:                #1B8354;
+
+  // ---- Accent ----
+  --dark:                   #074D31;
+
+  // ---- Typography ----
+  --font-family-sans-serif: 'IBM Plex Sans Arabic', 'IBM Plex Sans', sans-serif;
+}
