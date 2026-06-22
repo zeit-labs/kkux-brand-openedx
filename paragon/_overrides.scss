@@ -1,16 +1,41 @@
-// KKUx Brand — Paragon CSS Custom Properties (runtime theming)
-// Overrides Paragon's :root variables. Must be imported AFTER Paragon.
+// KKUx Brand — Paragon CSS Custom Properties
+// Must override --pgn-* variables that Paragon components actually use.
+// Loaded via webpack alias: @openedx/brand-openedx → ../kkux-brand-openedx
 
-:root {
-  // ---- Brand ----
-  --brand:                  #1B8354;
-  --primary:                #1B8354;
-  --green:                  #1B8354;
-  --success:                #1B8354;
+html:root {
+  // ---- Brand (replaces default #9D0054 purple) ----
+  --pgn-color-brand-base:   #00392B !important;
+  --pgn-color-brand-100:    #E0EDE7 !important;
+  --pgn-color-brand-200:    #B0CFBE !important;
+  --pgn-color-brand-300:    #80B295 !important;
+  --pgn-color-brand-400:    #50946B !important;
+  --pgn-color-brand-500:    #00392B !important;
+  --pgn-color-brand-600:    #002E22 !important;
+  --pgn-color-brand-700:    #002319 !important;
+  --pgn-color-brand-800:    #001710 !important;
+  --pgn-color-brand-900:    #000C07 !important;
 
-  // ---- Accent ----
-  --dark:                   #074D31;
+  // ---- Primary Button ----
+  --pgn-color-primary-base:       #00392B !important;
+  --pgn-color-primary-100:        #E0EDE7 !important;
+  --pgn-color-primary-200:        #B0CFBE !important;
+  --pgn-color-primary-300:        #80B295 !important;
+  --pgn-color-primary-400:        #50946B !important;
+  --pgn-color-primary-500:        #00392B !important;
+  --pgn-color-primary-600:        #002E22 !important;
+  --pgn-color-primary-700:        #002319 !important;
+  --pgn-color-primary-800:        #001710 !important;
+  --pgn-color-primary-900:        #000C07 !important;
 
   // ---- Typography ----
-  --font-family-sans-serif: 'IBM Plex Sans Arabic', 'IBM Plex Sans', sans-serif;
+  --pgn-typography-font-family-base:       'IBM Plex Sans Arabic', 'IBM Plex Sans', sans-serif !important;
+  --pgn-typography-font-family-sans-serif: 'IBM Plex Sans Arabic', 'IBM Plex Sans', sans-serif !important;
+
+  // ---- Legacy vars ----
+  --brand:                  #00392B !important;
+  --primary:                #00392B !important;
+  --green:                  #00392B !important;
+  --success:                #00392B !important;
+  --dark:                   #001710 !important;
+  --font-family-sans-serif: 'IBM Plex Sans Arabic', 'IBM Plex Sans', sans-serif !important;
 }
