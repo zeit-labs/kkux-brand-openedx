@@ -1,2 +1,41 @@
-// Use this file to set SASS variables for @edx/paragon
-// See _variables.scss in https://github.com/openedx/paragon/blob/master/scss/core/ for reference
+// KKUx Brand — Paragon SCSS variable overrides
+// These override Paragon defaults at compile time (webpack build).
+// Must be imported BEFORE @edx/paragon in MFE index.scss.
+// Reference: node_modules/@openedx/paragon/scss/core/_variables.scss
+// Style guide: eduba-brand-openedx (teak.3.eduba.prod branch)
+
+// ---- Color system ----
+$brand:     #00392B;
+$primary:   #00392B;
+$secondary: #50946B;
+$dark:      #001710;
+$success:   #178253;
+
+// Paragon auto-derives $brand-100 … $brand-900 via color.mix().
+// Only the base values above need overriding.
+
+// ---- Typography ----
+$font-family-sans-serif: 'IBM Plex Sans Arabic', 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+// ---- Font-size (Open edX Teak default, kept explicit for clarity) ----
+$font-size-base: 1.125rem;
+
+// ---- Brand CSS custom properties (for runtime styling outside Paragon SCSS scope) ----
+// Values match Paragon's color.mix(white|black, $primary, N%) output exactly.
+:root {
+  --color-primary:   #00392B;
+  --color-secondary: #50946B;
+
+  // Paragon-equivalent scale (color.mix derived from #00392B)
+  --color-primary-100: #F0F3F2;   // color.mix(white, primary, 94%)
+  --color-primary-200: #BFCECA;   // color.mix(white, primary, 75%)
+  --color-primary-300: #809C95;   // color.mix(white, primary, 50%)
+  --color-primary-400: #406A60;   // color.mix(white, primary, 25%)
+  --color-primary-500: #00392B;   // base
+  --color-primary-600: #003327;   // color.mix(black, primary, 10%)
+  --color-primary-700: #002E22;   // color.mix(black, primary, 20%)
+  --color-primary-800: #002B20;   // color.mix(black, primary, 25%)
+  --color-primary-900: #00281E;   // color.mix(black, primary, 30%)
+
+  --font-family-base: 'IBM Plex Sans Arabic', 'IBM Plex Sans', sans-serif;
+}

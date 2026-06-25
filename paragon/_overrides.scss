@@ -1,2 +1,34 @@
-// Use this file to define style overrides for @edx/paragon
-// This file is included after all Paragon styles, but should generally avoid using private mixins in Paragon.
+// KKUx Brand — Post-Paragon CSS overrides
+// This file is imported AFTER @edx/paragon in MFE index.scss.
+// Use it for component-level overrides that SCSS variables can't handle.
+//
+// !important on font-family is necessary because Paragon components
+// declare their own font-family (e.g., .pgn__* classes). Without it
+// Paragon's built-in declarations win. This matches community practice
+// (eduba-brand-openedx, edly-io/brand-openedx, etc.).
+
+html,
+body {
+  * {
+    font-family: var(--font-family-base) !important;
+  }
+
+  button,
+  input,
+  select,
+  textarea {
+    font-family: inherit;
+  }
+
+  .pgn__typography,
+  .pgn__text,
+  .pgn__heading,
+  .pgn__button,
+  .pgn__form-control,
+  .pgn__form-label,
+  .pgn__modal,
+  .pgn__dropdown,
+  .pgn__menu {
+    font-family: inherit;
+  }
+}
