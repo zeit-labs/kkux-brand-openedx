@@ -14,5 +14,8 @@
   "homepage": "https://github.com/zeit-labs/kkux-brand-openedx#readme",
   "publishConfig": {
     "access": "public"
+  },
+  "devDependencies": {
+    "sass": "^1.101.0"
   }
 }
