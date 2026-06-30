@@ -32,3 +32,9 @@ body {
     font-family: inherit;
   }
 }
+
+// RTL: Flip card images so they face the correct direction
+[dir="rtl"] .pgn__card .pgn__card-wrapper-image-cap.horizontal .pgn__card-image-cap {
+  border-radius: 0 .375rem .375rem 0;
+  transform: scaleX(-1);
+}
