@@ -1,0 +1,21 @@
+{
+  "themeUrls": {
+    "core": {
+      "paths": {
+        "default": "paragon-theme-core.css",
+        "minified": "paragon-theme-core.css"
+      }
+    },
+    "variants": {
+      "light": {
+        "paths": {
+          "default": "paragon-theme-variants-light.css",
+          "minified": "paragon-theme-variants-light.css"
+        }
+      }
+    },
+    "defaults": {
+      "light": "light"
+    }
+  }
+}

@@ -1,0 +1,32 @@
+// KKUx Brand — Override Paragon CSS custom properties
+// These property names match Paragon's CSS custom properties exactly.
+
+:root {
+  // Primary / brand colors
+  --pgn-color-primary-base: #00392B;
+  --pgn-color-primary-100: #F0F3F2;
+  --pgn-color-primary-200: #BFCECA;
+  --pgn-color-primary-500: #00392B;
+  --pgn-color-primary-700: #002E22;
+
+  // Repoint Paragon's link/info tokens to the brand palette so anchors,
+  // tabs, badges, and `.alert-info` / `.badge-info` / `.btn-outline-info`
+  // render in KKUx green instead of upstream Paragon's teal-blue.
+  --pgn-color-link-base:  #00392B !important;
+  --pgn-color-link-hover: #002E22 !important;
+  --pgn-color-teal:       #00392B !important;
+
+  // Generic aliases (Paragon uses these in some places)
+  --brand: #00392B;
+  --primary: #00392B;
+
+  // Typography
+  --pgn-typography-font-family-sans-serif: 'IBM Plex Sans Arabic', 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --pgn-typography-font-family-base: 'IBM Plex Sans Arabic', 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;700&family=IBM+Plex+Sans:wght@400;500;700&display=swap");
+
+@import "../paragon/variables";
+@import "../paragon/overrides";
+@import "../paragon/fonts";
