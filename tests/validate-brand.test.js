@@ -60,4 +60,14 @@ describe('Brand package validation', () => {
       expect(content).toContain('IBM+Plex+Sans+Arabic');
     });
   });
+
+  describe('dist/brand.scss link/info repoint', () => {
+    test('defines --pgn-color-link-base / -hover / -teal on :root', () => {
+      const content = fs.readFileSync(path.join(ROOT, 'dist/brand.scss'), 'utf8');
+      expect(content).toContain(':root');
+      expect(content).toMatch(/--pgn-color-link-base:[^;]+#00392B/);
+      expect(content).toMatch(/--pgn-color-link-hover:[^;]+#002E22/);
+      expect(content).toMatch(/--pgn-color-teal:[^;]+#00392B/);
+    });
+  });
 });
