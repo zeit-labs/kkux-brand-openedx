@@ -50,8 +50,8 @@ $font-size-base: 1.125rem;
   // from the brand primary. Without overrides, anchors, tabs, badges,
   // breadcrumbs, .alert-info / .badge-info / .btn-outline-info all
   // render in upstream Paragon's teal-blue. Repoint to brand green.
-  // !important because @edx/paragon loads after dist/brand.scss in the
-  // MFE bundle order.
+  // !important because @edx/paragon loads after @edx/brand/paragon/variables
+  // in the MFE bundle order.
   --pgn-color-link-base:  #00392B !important;
   --pgn-color-link-hover: #002E22 !important;
   --pgn-color-teal:       #00392B !important;

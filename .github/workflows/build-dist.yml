@@ -1,7 +1,7 @@
 name: Build dist
 
-# Verifies that the committed dist/paragon-theme-*.css and dist/brand.css
-# files match what `npm run build` regenerates from paragon/*.scss.
+# Verifies that the committed dist/paragon-theme-*.css files match what
+# `npm run build` regenerates from paragon/*.scss.
 #
 # This enforces the single-source-of-truth invariant: SCSS is the
 # authority, dist/ is the build output, contributors must regenerate

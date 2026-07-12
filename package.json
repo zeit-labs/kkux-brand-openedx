@@ -9,10 +9,9 @@
     "dist"
   ],
   "scripts": {
-    "build": "npm run build:core && npm run build:variants-light && npm run build:brand",
+    "build": "npm run build:core && npm run build:variants-light",
     "build:core": "sass --no-source-map paragon/_variables.scss dist/paragon-theme-core.css",
     "build:variants-light": "sass --no-source-map paragon/_overrides.scss dist/paragon-theme-variants-light.css",
-    "build:brand": "sass --no-source-map dist/brand.scss dist/brand.css",
     "prepack": "npm run build"
   },
   "repository": {
