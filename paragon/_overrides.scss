@@ -83,6 +83,39 @@ a {
   }
 }
 
+// Repaint .btn-link in KKUx brand green.
+//
+// Bootstrap's _buttons.scss:83-106 emits (with SCSS variables resolved
+// at compile time to hardcoded hex values, no var() reference in
+// Paragon 22.x):
+//
+//   .btn-link {
+//     font-weight: $font-weight-normal;        → 400
+//     color: $link-color;                     → #006daa (hardcoded)
+//     text-decoration: $link-decoration;     → none (hardcoded)
+//     &:hover, &:focus {
+//       color: $link-hover-color;             → #003c5e (hardcoded)
+//       text-decoration: $link-hover-decoration; → underline (hardcoded)
+//     }
+//   }
+//
+// Same override pattern as the bare <a> rule above. The custom
+// property lookup with hardcoded fallback works in both:
+//   - Paragon 22: --pgn-color-link-base is undefined, falls back to #00392B
+//   - Paragon 23: --pgn-color-link-base is defined by paragon-theme-core.css,
+//     resolves to #00392B (brand override)
+.btn-link {
+  font-weight: 400;
+  color: var(--pgn-color-link-base, #00392B);
+  text-decoration: none;
+
+  &:hover,
+  &:focus {
+    color: var(--pgn-color-link-hover, #002E22);
+    text-decoration: underline;
+  }
+}
+
 // RTL: Flip horizontal card images so they face the correct direction.
 // Paragon ships horizontal ImageCap with a fixed-direction asset; this
 // mirrors it for RTL locales using the same [dir="rtl"] gate Paragon
