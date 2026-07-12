@@ -1,0 +1,75 @@
+name: Build dist
+
+# Verifies that the committed dist/paragon-theme-*.css and dist/brand.css
+# files match what `npm run build` regenerates from paragon/*.scss.
+#
+# This enforces the single-source-of-truth invariant: SCSS is the
+# authority, dist/ is the build output, contributors must regenerate
+# dist/ locally before pushing.
+#
+# To fix a failing CI run:
+#   npm ci
+#   npm run build
+#   git add dist/
+#   git commit -m "chore(brand): rebuild dist from SCSS"
+#   git push
+
+on:
+  pull_request:
+    branches: [kkux.teak.prod, master]
+  push:
+    branches: [kkux.teak.prod, master]
+
+permissions:
+  contents: read
+
+jobs:
+  verify-dist:
+    name: Verify dist/ matches SCSS sources
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: '.nvmrc'
+
+      - name: Cache sass install
+        uses: actions/cache@v4
+        with:
+          path: ~/.npm
+          key: npm-sass-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
+          restore-keys: npm-sass-${{ runner.os }}-
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build dist/ from SCSS sources
+        run: npm run build
+
+      - name: Verify committed dist/ matches built dist/
+        # Track dist/* files that may be gitignored in some configurations,
+        # so `git diff` sees them and surfaces any drift.
+        run: |
+          git add -Af dist/
+          if ! git diff --cached --exit-code -- dist/; then
+            echo "::error::dist/ files are out of sync with SCSS sources."
+            echo ""
+            echo "Run locally to regenerate, then commit:"
+            echo "  npm ci"
+            echo "  npm run build"
+            echo "  git add dist/"
+            echo "  git commit -m 'chore(brand): rebuild dist from SCSS'"
+            echo "  git push"
+            echo ""
+            echo "Drift summary:"
+            git diff --cached --stat dist/ | sed 's/^/  /'
+            echo ""
+            echo "Drift details:"
+            git diff --cached dist/ | sed 's/^/  /'
+            exit 1
+          fi
+          echo "OK: committed dist/ matches npm run build output"

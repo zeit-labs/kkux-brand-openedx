@@ -20,9 +20,50 @@ $font-family-sans-serif: 'IBM Plex Sans Arabic', 'IBM Plex Sans', -apple-system,
 // ---- Font-size (Open edX Teak default, kept explicit for clarity) ----
 $font-size-base: 1.125rem;
 
-// ---- Brand CSS custom properties (for runtime styling outside Paragon SCSS scope) ----
-// Values match Paragon's color.mix(white|black, $primary, N%) output exactly.
+// ---- Brand CSS custom properties ----
+//
+// Two namespaces in parallel:
+//   * --pgn-color-*  — Paragon 23+ tokens consumed by @openedx/paragon
+//                       components (.btn, .alert, .badge, .nav, tabs,
+//                       breadcrumbs, etc.). Paragon 23+ does NOT derive
+//                       these from $primary, so they need explicit values
+//                       (see mkurkar/paragon-pgn-css-vars-and-asset-replace
+//                       branch for the discovery write-up).
+//   * --color-*      — legacy alias for any code that still reads the
+//                       pre-Paragon-23 token names. Values match the
+//                       color.mix(white|black, $primary, N%) derivation
+//                       that Paragon 23 performs on $primary internally.
+//
+// Both namespaces share the same source-of-truth base (#00392B) so the
+// runtime palette stays consistent regardless of which namespace a
+// component reads.
+
 :root {
+  // ---- Paragon 23+ (--pgn-color-*) ----
+  --pgn-color-primary-base: #00392B;
+  --pgn-color-primary-100:  #F0F3F2;   // color.mix(white, primary, 94%)
+  --pgn-color-primary-200:  #BFCECA;   // color.mix(white, primary, 75%)
+  --pgn-color-primary-500:  #00392B;   // base
+  --pgn-color-primary-700:  #002E22;   // color.mix(black, primary, 20%)
+
+  // Paragon 23+ ships these as flat hex defaults that do NOT derive
+  // from the brand primary. Without overrides, anchors, tabs, badges,
+  // breadcrumbs, .alert-info / .badge-info / .btn-outline-info all
+  // render in upstream Paragon's teal-blue. Repoint to brand green.
+  // !important because @edx/paragon loads after dist/brand.scss in the
+  // MFE bundle order.
+  --pgn-color-link-base:  #00392B !important;
+  --pgn-color-link-hover: #002E22 !important;
+  --pgn-color-teal:       #00392B !important;
+
+  --pgn-typography-font-family-sans-serif: 'IBM Plex Sans Arabic', 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --pgn-typography-font-family-base:       'IBM Plex Sans Arabic', 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+  // ---- Generic aliases ----
+  --brand:    #00392B;
+  --primary:  #00392B;
+
+  // ---- Legacy (--color-*) ----
   --color-primary:   #00392B;
   --color-secondary: #50946B;
 
