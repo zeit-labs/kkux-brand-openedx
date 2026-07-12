@@ -33,6 +33,56 @@ body {
   }
 }
 
+// Repaint bare <a> tags in KKUx brand green.
+//
+// Why this rule is necessary even though paragon/_variables.scss
+// overrides --info / --teal / --accent-a / --pgn-color-link-base in
+// :root:
+//
+// Paragon 22.x's compiled CSS emits HARD-CODED link colors via
+// Bootstrap's _reboot.scss:186-198:
+//
+//   a {
+//     color: $link-color;            // resolves to #006daa at compile time
+//     ...
+//     @include hover() {
+//       color: $link-hover-color;    // resolves to #003c5e at compile time
+//     }
+//   }
+//
+// $link-color and $link-hover-color are SCSS variables, not CSS custom
+// properties. Once compiled, they're literal hex values in the output
+// CSS. Overriding :root custom properties (--info, --teal, --pgn-color-*)
+// has NO effect on these rules because the rules don't reference any
+// custom property.
+//
+// Paragon 23.x's compiled CSS uses var(--pgn-color-link-base) instead,
+// so the :root overrides work there. But several MFEs in the kkux teak
+// prod stack still use Paragon 22.x (frontend-app-discussions uses
+// 22.16.1, frontend-app-learner-dashboard uses 22.17.0, etc.).
+//
+// To repaint bare <a> tags across BOTH Paragon 22.x and 23.x, emit an
+// explicit selector rule. The brand CSS chunks (paragon-theme-core +
+// paragon-theme-variants-light) load AFTER Paragon's compiled CSS in
+// the MFE webpack entry order (see
+// frontend-build/config/webpack.common.config.js:34-42), so cascade
+// order alone wins - no !important needed.
+//
+// The custom property lookup with hardcoded fallback works in both:
+//   - Paragon 22: --pgn-color-link-base is undefined (Paragon 22 doesn't
+//     emit it), falls back to #00392B
+//   - Paragon 23: --pgn-color-link-base is defined by paragon-theme-core.css
+//     (which loads before this rule), resolves to #00392B (brand override)
+a {
+  color: var(--pgn-color-link-base, #00392B);
+  text-decoration: underline;
+
+  &:hover,
+  &:focus {
+    color: var(--pgn-color-link-hover, #002E22);
+  }
+}
+
 // RTL: Flip horizontal card images so they face the correct direction.
 // Paragon ships horizontal ImageCap with a fixed-direction asset; this
 // mirrors it for RTL locales using the same [dir="rtl"] gate Paragon

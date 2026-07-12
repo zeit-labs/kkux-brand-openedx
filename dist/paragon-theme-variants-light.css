@@ -33,6 +33,14 @@ body .pgn__menu {
   font-family: inherit;
 }
 
+a {
+  color: var(--pgn-color-link-base, #00392B);
+  text-decoration: underline;
+}
+a:hover, a:focus {
+  color: var(--pgn-color-link-hover, #002E22);
+}
+
 [dir=rtl] .pgn__card .pgn__card-wrapper-image-cap.horizontal .pgn__card-image-cap {
   border-radius: 0 0.375rem 0.375rem 0;
   transform: scaleX(-1);
