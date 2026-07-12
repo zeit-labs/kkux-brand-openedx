@@ -7,6 +7,9 @@
   --pgn-color-link-base: #00392B !important;
   --pgn-color-link-hover: #002E22 !important;
   --pgn-color-teal: #00392B !important;
+  --info: #00392B !important;
+  --teal: #00392B !important;
+  --accent-a: #00392B !important;
   --pgn-typography-font-family-sans-serif: 'IBM Plex Sans Arabic', 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --pgn-typography-font-family-base: 'IBM Plex Sans Arabic', 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --brand: #00392B;

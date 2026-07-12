@@ -56,6 +56,38 @@ $font-size-base: 1.125rem;
   --pgn-color-link-hover: #002E22 !important;
   --pgn-color-teal:       #00392B !important;
 
+  // ---- Pre-Paragon-23 legacy tokens (--info / --teal / --accent-a) ----
+  //
+  // Bootstrap's _reboot.scss:186 sets `a { color: $link-color }` where
+  // Paragon's _variables.scss:390 defines `$link-color: $info-500`.
+  // $info-500 resolves to `$info` (line 135), which resolves to `$teal`
+  // (line 72-ish), which defaults to #006DAA. So Paragon's bare `a`
+  // selector reads `--info` (or equivalently `--teal`) at runtime - NOT
+  // `--pgn-color-link-base`.
+  //
+  // Setting only `--pgn-color-link-base` doesn't repaint bare `a` tags
+  // because that variable is referenced by Paragon 23+ components
+  // (.btn, .alert, .badge, etc.) but not by Bootstrap's reboot-level
+  // `a { color }` rule. To actually repaint anchors, badges, info
+  // alerts, breadcrumbs, nav-pills, etc. in their pre-Paragon-23
+  // form, override the legacy token set too:
+  //
+  //   --info      — Bootstrap `a` color, $link-color source
+  //   --teal      — direct alias of --info in Paragon
+  //   --accent-a  — focus rings, .btn-outline-* hover, .nav-pills active,
+  //                 breadcrumb active, etc.
+  //
+  // !important because Paragon's :root emits these in its compiled
+  // output via paragon build-scss; the brand override :root must win.
+  // (Both :root selectors have specificity (0,1,0), so source order +
+  // !important are the deciding factors. The brand CSS loads AFTER
+  // Paragon's bundled CSS, so the source order is already in our favor,
+  // but !important belt-and-braces against any future Paragon changes
+  // that bump the !important on its defaults.)
+  --info:     #00392B !important;   // a { color } base + alert-info + badge-info + btn-outline-info
+  --teal:     #00392B !important;   // alias of --info in Paragon
+  --accent-a: #00392B !important;   // focus rings + .btn-outline-info:hover + nav-pills.active
+
   --pgn-typography-font-family-sans-serif: 'IBM Plex Sans Arabic', 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --pgn-typography-font-family-base:       'IBM Plex Sans Arabic', 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 
