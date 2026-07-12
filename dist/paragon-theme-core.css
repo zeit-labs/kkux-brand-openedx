@@ -1,0 +1,76 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;700&family=IBM+Plex+Sans:wght@400;500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;700&family=IBM+Plex+Sans:wght@400;500;700&display=swap");
+:root {
+  --pgn-color-primary-base: #00392B;
+  --pgn-color-primary-100: #F0F3F2;
+  --pgn-color-primary-200: #BFCECA;
+  --pgn-color-primary-500: #00392B;
+  --pgn-color-primary-700: #002E22;
+  --pgn-color-link-base: #00392B !important;
+  --pgn-color-link-hover: #002E22 !important;
+  --pgn-color-teal: #00392B !important;
+  --brand: #00392B;
+  --primary: #00392B;
+  --pgn-typography-font-family-sans-serif: 'IBM Plex Sans Arabic', 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --pgn-typography-font-family-base: 'IBM Plex Sans Arabic', 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+:root {
+  --color-primary: #00392B;
+  --color-secondary: #50946B;
+  --color-primary-100: #F0F3F2;
+  --color-primary-200: #BFCECA;
+  --color-primary-300: #809C95;
+  --color-primary-400: #406A60;
+  --color-primary-500: #00392B;
+  --color-primary-600: #003327;
+  --color-primary-700: #002E22;
+  --color-primary-800: #002B20;
+  --color-primary-900: #00281E;
+  --font-family-base: 'IBM Plex Sans Arabic', 'IBM Plex Sans', sans-serif;
+}
+
+html *,
+body * {
+  font-family: var(--font-family-base) !important;
+}
+html button,
+html input,
+html select,
+html textarea,
+body button,
+body input,
+body select,
+body textarea {
+  font-family: inherit;
+}
+html .pgn__typography,
+html .pgn__text,
+html .pgn__heading,
+html .pgn__button,
+html .pgn__form-control,
+html .pgn__form-label,
+html .pgn__modal,
+html .pgn__dropdown,
+html .pgn__menu,
+body .pgn__typography,
+body .pgn__text,
+body .pgn__heading,
+body .pgn__button,
+body .pgn__form-control,
+body .pgn__form-label,
+body .pgn__modal,
+body .pgn__dropdown,
+body .pgn__menu {
+  font-family: inherit;
+}
+
+[dir=rtl] .pgn__card .pgn__card-wrapper-image-cap.horizontal .pgn__card-image-cap {
+  border-radius: 0 0.375rem 0.375rem 0;
+  transform: scaleX(-1);
+}
+
+[dir=rtl] .pgn__card .pgn__card-wrapper-image-cap.horizontal .pgn__card-image-cap {
+  border-radius: 0 0.375rem 0.375rem 0;
+  transform: scaleX(-1);
+}
