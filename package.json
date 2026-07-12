@@ -7,7 +7,8 @@
     "./*": "./dist/*"
   },
   "files": [
-    "dist"
+    "dist",
+    "paragon"
   ],
   "scripts": {
     "build": "npm run build:core && npm run build:variants-light",
