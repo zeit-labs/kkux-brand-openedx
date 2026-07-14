@@ -70,16 +70,16 @@ body {
 //
 // The custom property lookup with hardcoded fallback works in both:
 //   - Paragon 22: --pgn-color-link-base is undefined (Paragon 22 doesn't
-//     emit it), falls back to #007359 (the marketing site's --pillar-500)
+//     emit it), falls back to #00392B
 //   - Paragon 23: --pgn-color-link-base is defined by paragon-theme-core.css
-//     (which loads before this rule), resolves to #007359 (brand override)
+//     (which loads before this rule), resolves to #00392B (brand override)
 a {
-  color: var(--pgn-color-link-base, #007359);
+  color: var(--pgn-color-link-base, #00392B);
   text-decoration: underline;
 
   &:hover,
   &:focus {
-    color: var(--pgn-color-link-hover, #005F48);
+    color: var(--pgn-color-link-hover, #002E22);
   }
 }
 
@@ -101,17 +101,17 @@ a {
 //
 // Same override pattern as the bare <a> rule above. The custom
 // property lookup with hardcoded fallback works in both:
-//   - Paragon 22: --pgn-color-link-base is undefined, falls back to #007359
+//   - Paragon 22: --pgn-color-link-base is undefined, falls back to #00392B
 //   - Paragon 23: --pgn-color-link-base is defined by paragon-theme-core.css,
-//     resolves to #007359 (brand override)
+//     resolves to #00392B (brand override)
 .btn-link {
   font-weight: 400;
-  color: var(--pgn-color-link-base, #007359);
+  color: var(--pgn-color-link-base, #00392B);
   text-decoration: none;
 
   &:hover,
   &:focus {
-    color: var(--pgn-color-link-hover, #005F48);
+    color: var(--pgn-color-link-hover, #002E22);
     text-decoration: underline;
   }
 }

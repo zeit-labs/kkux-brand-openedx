@@ -34,20 +34,20 @@ body .pgn__menu {
 }
 
 a {
-  color: var(--pgn-color-link-base, #007359);
+  color: var(--pgn-color-link-base, #00392B);
   text-decoration: underline;
 }
 a:hover, a:focus {
-  color: var(--pgn-color-link-hover, #005F48);
+  color: var(--pgn-color-link-hover, #002E22);
 }
 
 .btn-link {
   font-weight: 400;
-  color: var(--pgn-color-link-base, #007359);
+  color: var(--pgn-color-link-base, #00392B);
   text-decoration: none;
 }
 .btn-link:hover, .btn-link:focus {
-  color: var(--pgn-color-link-hover, #005F48);
+  color: var(--pgn-color-link-hover, #002E22);
   text-decoration: underline;
 }
 
