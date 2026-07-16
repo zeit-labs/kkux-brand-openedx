@@ -61,9 +61,9 @@ describe('Brand package validation', () => {
     });
   });
 
-  describe('dist/brand.scss link/info repoint', () => {
+  describe('paragon/_variables.scss link/info repoint', () => {
     test('defines --pgn-color-link-base / -hover / -teal on :root', () => {
-      const content = fs.readFileSync(path.join(ROOT, 'dist/brand.scss'), 'utf8');
+      const content = fs.readFileSync(path.join(ROOT, 'paragon/_variables.scss'), 'utf8');
       expect(content).toContain(':root');
       expect(content).toMatch(/--pgn-color-link-base:[^;]+#00392B/);
       expect(content).toMatch(/--pgn-color-link-hover:[^;]+#002E22/);
